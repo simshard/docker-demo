@@ -1,0 +1,8 @@
+FROM node:latest
+WORKDIR /home/projects/docker-demo/build
+RUN npm install -g json-server
+COPY db.json /home/projects/docker-demo/build/db.json
+COPY alt.json /home/projects/docker-demo/build/alt.json
+EXPOSE 3000
+ENTRYPOINT ["/usr/local/bin/json-server", "--host", "0.0.0.0"]
+CMD ["db.json"]
