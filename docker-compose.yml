@@ -26,6 +26,14 @@ services:
       context: .
       dockerfile: php.dockerfile
     volumes:
-      - ./src:/var/www/html/public
+      - ./src:/var/www/html/
+  composer:
+    build:
+      context: .
+      dockerfile: composer.dockerfile
+    volumes:
+      - ./src:/var/www/html
+    user: laravel
+    working_dir: /var/www/html
 
 
